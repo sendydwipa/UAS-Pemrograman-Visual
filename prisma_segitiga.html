@@ -1,0 +1,156 @@
+<html>
+    <head>
+        <title>Menghitung Prisma Segitiga</title>
+        <style>
+            .kiri{
+                width: 120px;
+                float: left;
+            };
+        </style>
+    </head>
+    <body>
+        <script type="text/javascript" language="javascript">
+            const LAPrisma =(pst)=>{
+                var alas_segitiga = parseFloat(document.pst.a_segitiga.value);
+                var tinggi_segitiga = parseFloat(document.pst.t_segitiga.value);
+                var la_prisma = 0.5 * alas_segitiga * tinggi_segitiga;
+                document.pst.Hasil_luas_alas.value = la_prisma;
+
+                var la_sgt = parseFloat(document.pst.Hasil_luas_alas.value);
+                var lp_prisma = parseFloat(document.pst.Hasil_luas_selimut.value);
+                var tinggi_p = parseFloat(document.pst.tprisma.value);
+                var volume = la_sgt*tinggi_p;
+                var luasPrisma = 2*la_sgt+lp_prisma;  
+
+                document.pst.luas_prisma.value = luasPrisma;
+                document.pst.volume_prisma.value = volume;
+            }
+
+            const LSPrisma =(pst)=>{
+                var n_ab = parseFloat(document.pst.ab.value);
+                var n_bc = parseFloat(document.pst.bc.value);
+                var n_ac = parseFloat(document.pst.ac.value);
+                var tinggi_p = parseFloat(document.pst.tprisma.value);
+                var hasil = n_ab*tinggi_p + n_bc*tinggi_p + n_ac*tinggi_p;
+
+                document.pst.Hasil_luas_selimut.value = hasil;
+
+                
+            }
+        </script>
+         <div class="container">
+            <h2 style="text-align: center;  margin: 25px 0;">Menghitung Prisma Segitiga</h2>
+            <div class="row d-flex justify-content-center">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-6 text-right">
+                            <h5 class="text-center">Gambar</h5>
+                            <img src="gambar/prisma_segitiga.png" alt="prisma segitiga" height="200px" width="300px">
+                        </div>
+                        <div class="col-sm-6">
+                            <h5>Rumus</h5>
+                            <div class="col-sm-12 col-md-12 col-xs-12" style="border: 3px solid rgb(102, 252, 202); padding-top: 10px;">
+                                <p>Luas prisma = 2 x luas alas + luas selimut<br>
+                                    Volume = luas alas x tinggi prisma<br>
+                                    luas alas segitiga = 1/2 x alas segitiga x tinggi segitiga<br>
+                                    luas selimut = 3 x (panjang x lebar) atau AB x BE + BC x CF + AC x AD
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><hr>
+            <form action="" name="pst" enctype="multipart/form-data">
+                <div class="jawaban" style="padding-left: 10px">
+                    <h4 style="margin-bottom: 20px;" class="text-center">PERHITUNGAN </h4>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h4 style="margin-bottom: 10px;">Menentukan Luas Selimut Prisma</h4>
+                            <div class="row">
+                                <div class="col-sm-11" style="background-color: rgb(102, 252, 202); padding: 20px 25px; border-radius: 10px; box-shadow: 1px 2px 6px cadetblue;">
+                                    <div class="form-group row">
+                                        <label for="ab" class="col-sm-4 col-form-label">Nilai AB</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="ab" id="alas_sgt" class="form-control" placeholder="masukkan nilai satuan cm">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="bc" class="col-sm-4 col-form-label">Nilai BC</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="bc" id="alas_sgt" class="form-control" placeholder="masukkan nilai satuan cm">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="ac" class="col-sm-4 col-form-label">Nilai AC</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="ac" id="alas_sgt" class="form-control" placeholder="masukkan nilai satuan cm">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="tprisma" class="col-sm-4 col-form-label">Tinggi Prisma</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="tprisma" class="form-control" placeholder="masukkan nilai satuan cm">
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-center" style="margin-bottom: 10px;">
+                                        <input type="button" class="btn btn-success col-sm-12" name="cek" value="hitung" onclick="LSPrisma(pst)">
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <input type="text"  class="form-control form-control-lg" name="Hasil_luas_selimut" placeholder="input luas alas jika sudah ada">  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <h4 style="margin-bottom: 10px;">Menentukan luas segitiga</h4>
+                            <div class="row">
+                                <div class="col-sm-11" style="background-color: rgb(102, 252, 202); padding: 20px 25px; border-radius: 10px; box-shadow: 1px 2px 6px cadetblue;">
+                                    <div class="form-group row">
+                                        <label for="a_segitiga" class="col-sm-4 col-form-label">alas segitiga</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="a_segitiga" id="alas_sgt" class="form-control" placeholder="masukkan nilai satuan cm">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="t_segitiga" class="col-sm-4 col-form-label">tinggi segitiga</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="t_segitiga" id="tinggi_sgt" class="form-control" placeholder="masukkan nilai satuan cm">
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-center" style="margin-bottom: 10px;">
+                                        <input type="button" class="btn btn-success col-sm-12" name="cek" value="HASIL" onclick="LAPrisma(pst)">
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <input type="text" class="form-control form-control-lg" name="Hasil_luas_alas" placeholder="input luas alas jika sudah ada">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--//row-->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h4 style="margin-bottom: 10px; margin-top: 20px;">Hasil Perhitungan</h4>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12" style="background-color: rgb(74, 223, 173); padding: 20px 25px; border-radius: 10px; box-shadow: 1px 2px 6px cadetblue;">
+                                    <div class="form-group row">
+                                        <label for="luas_prisma" class="col-sm-4 col-form-label">Luas Prisma</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="luas_prisma" placeholder="Hasil luas Prisma" class="form-control" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="volume_prisma" class="col-sm-4 col-form-label">Volume Prisma</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="volume_prisma" placeholder="Hasil Volume Prisma" class="form-control" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!--//row-->
+                </div>
+            </form>
+        </div>  
+    </body>
+</html>

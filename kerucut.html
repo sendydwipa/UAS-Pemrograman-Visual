@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <title>Menghitung Kerucut</title>
+        <style>
+            .kiri{
+                width: 120px;
+                float: left;
+            };
+        </style>
+    </head>
+    <body>
+        <script type="text/javascript" language="javascript">
+
+            const perhitungan =(krc)=>{
+                var jari = parseFloat(document.krc.r.value);
+                var tinggi = parseFloat(document.krc.t_kerucut.value);
+                var pilihannya = document.krc.pilihan.value; 
+                var l_alas = 3.14*Math.pow(jari,2);
+                var s = Math.sqrt(Math.pow(jari,2) + Math.pow(tinggi,2));
+                var hitung;
+                if(pilihannya == "luaskrc"){
+                    hitung = 3.14 * jari*(jari+s);
+                }else if(pilihannya == "volumekrc"){
+                    hitung = (1/3) * l_alas * tinggi;
+                }else{
+                    alert("error");
+                }
+                document.krc.hasil.value = hitung;
+            }
+        </script>  
+        <div class="container">
+            <h2 style="text-align: center;  margin: 25px 0;">Menghitung Kerucut</h2>
+            <div class="row d-flex justify-content-center">
+                <div class="col-sm-8">
+                    <div class="row">
+                        <div class="col-sm-6 text-right">
+                            <h5 class="text-center">Gambar</h5>
+                            <img src="gambar/kerucut.jpg" alt="Kerucut" height="150px" width="230px">
+                        </div>
+                        <div class="col-sm-6">
+                            <h5>Rumus</h5>
+                            <div class="col-sm-12" style="border: 3px solid rgb(102, 252, 202); padding-top: 10px;">
+                                <p>Luas Permukaan kerucut = &pi;r(r + s)<br>
+                                    Volume kerucut= 1/3 x luas alas x tinggi<br>
+                                    luas alas (lingkaran) = &pi;r<sup>2</sup><br>
+                                    Garis pelukis (s) = &radic;r<sup>2</sup> + t<sup>2</sup>
+                                </p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <br><hr>
+
+            <form action="" name="krc">
+                <div style="padding-left: 10px">
+                    <h4 style="margin-bottom: 10px;">PERHITUNGAN </h4>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-sm-8" style="background-color: rgb(102, 252, 202); padding: 25px 25px; border-radius: 10px; box-shadow: 1px 2px 6px cadetblue;">
+                            <div class="form-group row">
+                                <label for="r" class="col-sm-2 col-form-label">jari-jari</label>
+                                <div class="col-sm-10">
+                                <input type="text" name="r" class="form-control" placeholder="masukkan nilai satuan cm">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="t_kerucut" class="col-sm-2 col-form-label">tinggi</label>
+                                <div class="col-sm-10">
+                                <input type="text" name="t_kerucut" class="form-control" placeholder="masukkan nilai satuan cm">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="pilihan" class="col-sm-2 col-form-label">Perhitungan</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" name="pilihan" id="exampleFormControlSelect1" onchange="perhitungan(krc)">
+                                        <option value="pilih">pilih kategori</option>
+                                        <option value="luaskrc">Luas Kerucut</option>
+                                        <option value="volumekrc">Volume Kerucut</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row d-flex justify-content-center">
+                                <label for="exampleFormControlSelect1" style="font-size: 20px;">Hasil Perhitungan</label>
+                                <div class="col-sm-10"><input class="form-control form-control-lg" type="text" placeholder="Hasil" name="hasil"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div> <!--//container-->
+    </body>
+</html>

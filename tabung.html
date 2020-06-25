@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <title>Menghitung Tabung</title>
+        <style>
+            .kiri{
+                width: 120px;
+                float: left;
+            };
+        </style>
+    </head>
+    <body>
+        <script type="text/javascript" language="javascript">
+
+            const perhitungan =(tb)=>{
+                var jari = parseFloat(document.tb.r.value);
+                var tinggi = parseFloat(document.tb.t_tabung.value);
+                var pilihannya = document.tb.pilihan.value; 
+                var l_alas = 3.14*Math.pow(jari,2);
+                var kll = 2*3.14*jari;
+                var hitung;
+                if(pilihannya == "luastb"){
+                    hitung = (2*l_alas) + (kll*tinggi);
+                }else if(pilihannya == "volumetb"){
+                    hitung = 3.14*Math.pow(jari,2)*tinggi;
+                }else{
+                    alert("error");
+                }
+                document.tb.hasil.value = hitung;
+            }
+        </script>  
+        <div class="container">
+            <h2 style="text-align: center;  margin: 25px 0;">Menghitung Jajargenjang</h2>
+            <div class="row d-flex justify-content-center">
+                <div class="row">
+                    <div class="col-sm-6 text-right">
+                        <h5 class="text-center">Gambar</h5>
+                        <img src="gambar/Tabung.jpg" alt="tabung" height="220px" width="270px">
+                    </div>
+                    <div class="col-sm-6">
+                        <h5>Rumus</h5>
+                        <div class="col-sm-12 col-md-12 col-xs-12" style="border: 3px solid rgb(102, 252, 202); padding-top: 10px;">
+                            <p>Luas Permukaan tabung = (2 x luas alas) + (keliling alas x tinggi)<br>
+                                Volume = &pi;r<sup>2</sup> x t<br>
+                                luas alas (lingkaran) = &pi;r<sup>2</sup><br>
+                                keliling alas (lingkaran) = 2&pi;r
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><hr>
+            <form action="" name="tb">
+                <div class="jawaban" style="padding-left: 10px">
+                    <h4 style="margin-bottom: 10px;">PERHITUNGAN </h4>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-sm-8" style="background-color: rgb(102, 252, 202); padding: 20px 25px; border-radius: 10px; box-shadow: 1px 2px 6px cadetblue;">
+                            <div class="form-group row">
+                                <label for="r" class="col-sm-2 col-form-label">Jari-jari</label>
+                                <div class="col-sm-10">
+                                <input type="text" name="r" class="form-control" placeholder="masukkan nilai satuan cm">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="t_tabung" class="col-sm-2 col-form-label">tinggi tabung</label>
+                                <div class="col-sm-10">
+                                <input type="text" name="t_tabung" class="form-control" placeholder="masukkan nilai satuan cm">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="pilihan" class="col-sm-2 col-form-label">Perhitungan</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" name="pilihan" id="exampleFormControlSelect1" onchange="perhitungan(tb)">
+                                        <option value="pilih">pilih kategori</option>
+                                        <option value="luastb">Luas Tabung</option>
+                                        <option value="volumetb">Volume Tabung</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row d-flex justify-content-center">
+                                <label for="exampleFormControlSelect1" style="font-size: 20px;">Hasil Perhitungan</label>
+                                <div class="col-sm-10"><input class="form-control form-control-lg" type="text" placeholder="Hasil" name="hasil"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div><!--//container-->
+    </body>
+</html>

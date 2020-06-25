@@ -1,0 +1,92 @@
+<html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>UAS Pemrograman Visual</title>
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+        <script>window.$ = window.jQuery = require('./bootstrap/js/jquery-3.5.1.js');</script>
+        <script src="./bootstrap/js/bootstrap.min.js"></script>
+        <script>
+          $(document).ready(function () {
+
+            $('#jg').click(function(){
+                $('#loaded_content').load( 'jajargenjang.html' );
+                $('#kubus').removeClass('active');
+                $('#prisma').removeClass('active');
+                $('#tabung').removeClass('active');
+                $('#kerucut').removeClass('active');
+            });
+            $('#kubus').click(function(){
+                $('#loaded_content').load( 'kubus.html' );
+                $('#jg').removeClass('active');
+                $('#prisma').removeClass('active');
+                $('#tabung').removeClass('active');
+                $('#kerucut').removeClass('active');
+            });
+            $('#prisma').click(function(){
+                $('#loaded_content').load( 'prisma_segitiga.html' );
+                $('#jg').removeClass('active');
+                $('#kubus').removeClass('active');
+                $('#tabung').removeClass('active');
+                $('#kerucut').removeClass('active');
+            });
+            $('#tabung').click(function(){
+                $('#loaded_content').load( 'tabung.html' );
+                $('#jg').removeClass('active');
+                $('#prisma').removeClass('active');
+                $('#kubus').removeClass('active');
+                $('#kerucut').removeClass('active');
+            });
+            $('#kerucut').click(function(){
+                $('#loaded_content').load( 'kerucut.html' );
+                $('#jg').removeClass('active');
+                $('#prisma').removeClass('active');
+                $('#tabung').removeClass('active');
+                $('#kubus').removeClass('active');
+            });
+        });
+          </script>
+    </head>
+    <body >
+        <div class="container-fluid" style="padding-left:0 !important; padding-right:0 !important;">
+          <div class="jumbotron jumbotron-fluid" style="margin-bottom: 0px; background-image: url('gambar/wallp.jpg');">
+            <div class="container" style="background-color: #fff; padding: 20px 10px; box-shadow: 1px 2px 6px #000;">
+              <h1 class="display-5 font-weight-bold" style="text-shadow: 1px 2px 2px gray;">Menghitung Bangun Ruang dan Bangun Datar</h1>
+              <p class="lead">Belajar matematika dasar menghitung luas, keliling, dan volume bangun ruang dan datar </p>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid" style="padding-left:0 !important; padding-right:0 !important;">
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav nav-pills" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link " id="jg" href="#jg" data-toggle="pill" role="tab">Jajar Genjang</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="kubus" href="#kubus" data-toggle="pill" role="tab">Kubus</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="prisma" href="#prisma" data-toggle="pill" role="tab">Prisma Segitiga</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="tabung" href="#tabung" data-toggle="pill" role="tab">Tabung</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="kerucut" href="#kerucut" data-toggle="pill" role="tab">Kerucut</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          
+          <div class="tab-content" id="pills-tabContent">
+            <!-- <div class="tab-pane fade show active" id="jg" role="tabpanel" aria-labelledby="pills-jg-tab" w3-include-html="jajargenjang.html"></div> -->
+            <div class="tab-pane fade show active" id="jgshow" role="t abpanel" aria-labelledby="pills-jg-tab" ></div>
+            <div id="loaded_content"></div>
+            <div class="tab-pane fade" id="kubusshow" role="tabpanel" aria-labelledby="pills-kubud-tab">b</div>
+            <div class="tab-pane fade" id="prismashow" role="tabpanel" aria-labelledby="pills-prisma-tab">c</div>
+            <div class="tab-pane fade" id="tabungshow" role="tabpanel" aria-labelledby="pills-tabung-tab">d</div>
+            <div class="tab-pane fade" id="kerucutshow" role="tabpanel" aria-labelledby="pills-kerucut-tab">e</div>
+          </div>
+        </div>
+    </body>
+</html>
